@@ -1,0 +1,22 @@
+@startuml
+title Диаграмма контекста для интеграции домофона и шлагбаума
+
+top to bottom direction
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+Person(user, "Собственник", "Клиент")
+System(Firewall, "Firewall", "")
+System(HouseSystem, "Система ЖКУ", "Группа сервисов ЖКУ")
+
+System_Ext(intercom, "Интеллектуальный домофон", "Провайдер домофона")
+System_Ext(ebs, "API ЕБС", "Единая биометрическая система")
+System_Ext(barrier, "Интеллектуальный шлагбаум", "Провайдер шлагбаума")
+
+Rel(user, Firewall, "")
+Rel(Firewall, HouseSystem, "Управляет в приложении")
+Rel_R(HouseSystem,intercom, "Открыть дверь")
+Rel(intercom, ebs, "Биометрическая аутентификация")
+Rel(HouseSystem,barrier, "Открыть шлагбаум")
+
+@enduml
