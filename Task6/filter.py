@@ -65,6 +65,5 @@ def filter_audit(log_file):
     input("\nPress Enter...")
 
 if __name__ == "__main__":
-    # Если аргумент не передан, ищем audit.log
     file_path = sys.argv[1] if len(sys.argv) > 1 else 'audit.log'
     filter_audit(file_path)
