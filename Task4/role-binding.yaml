@@ -1,0 +1,56 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-secret-reader-1-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-secret-reader-1
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-secret-reader
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-secret-manager-1-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-secret-manager-1
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-secret-manager
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-viewer-1-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-viewer-1
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-admin-1-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-admin-1
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
